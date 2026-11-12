@@ -28,6 +28,7 @@ sanitize = $(call tolower,$(subst _,-,$(subst $(space),-,$(1))))
 
 # 获取当前日期，格式为 YYYYMMDDHHMMSS
 CURRENT_DATE := $(shell date +%Y%m%d%H%M%S)
+
 VERSION_NUMBER:=$(call qstrip,$(CONFIG_VERSION_NUMBER))
 VERSION_NUMBER:=$(if $(VERSION_NUMBER),$(VERSION_NUMBER),25.12-)
 
