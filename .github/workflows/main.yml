@@ -62,10 +62,10 @@ jobs:
             mv backup/github_backup target_repo/.github
           fi
           # 恢复其他文件（备份里有的才恢复）
-          [ -f backup/files/Config-images.in ] && cp backup/files/Config-images.in target_repo/config/
-          [ -f backup/files/banner ] && cp backup/files/banner target_repo/package/base-files/files/etc/
-          [ -f backup/files/config_generate ] && cp backup/files/config_generate target_repo/package/base-files/files/bin/
-          [ -f backup/files/version.mk ] && cp backup/files/version.mk target_repo/include/
+          if [ -f backup/files/Config-images.in ]; then cp backup/files/Config-images.in target_repo/config/; fi
+          if [ -f backup/files/banner ]; then cp backup/files/banner target_repo/package/base-files/files/etc/; fi
+          if [ -f backup/files/config_generate ]; then cp backup/files/config_generate target_repo/package/base-files/files/bin/; fi
+          if [ -f backup/files/version.mk ]; then cp backup/files/version.mk target_repo/include/; fi
 
       # 6. 显式配置 Git 用户信息并提交更改
       - name: Commit and Push Changes
